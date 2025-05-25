@@ -56,6 +56,11 @@ td {
     text-align: center;
 }
 
+th {
+    padding: 5px;
+    text-align: center;
+}
+
 footer {
     line-height: 40px;
     display: flex;
