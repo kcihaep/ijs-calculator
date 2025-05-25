@@ -33,7 +33,7 @@
                 <tr class="head" id="free-skate">
                     <th>Number</th>
                     <th>Base Value</th>
-                    <th>Second Half?</th>
+                    <!--<th>Second Half?</th>-->
                     <th>GOE (raw)</th>
                     <th>Score</th>
                 </tr>
@@ -43,9 +43,9 @@
                     <td class="base-value">
                         <input class="el-code-field" maxlength="6" name="e1" type="text">
                     </td>
-                    <td class="second half?">
+                    <!-- <td class="second half?">
                         <input type="checkbox" id="secondhalf" name="secondhalf" value="secondhalf">
-                    </td>
+                    </td> -->
                     <td class="goe (raw)">
                         <input class="el-code-field" maxlength="2" name="e1" type="text">
                     </td>
@@ -59,9 +59,9 @@
                     <td class="base value">
                         <input class="el-code-field" maxlength="6" name="e1" type="text">
                     </td>
-                    <td class="second half?">
+                    <!-- <td class="second half?">
                         <input type="checkbox" id="secondhalf" name="secondhalf" value="secondhalf">
-                    </td>
+                    </td> -->
                     <td class="goe (raw)">
                         <input class="el-code-field" maxlength="2" name="e1" type="text">
                     </td>
@@ -75,9 +75,9 @@
                     <td class="base value">
                         <input class="el-code-field" maxlength="6" name="e1" type="text">
                     </td>
-                    <td class="second half?">
+                    <!-- <td class="second half?">
                         <input type="checkbox" id="secondhalf" name="secondhalf" value="secondhalf">
-                    </td>
+                    </td> -->
                     <td class="goe (raw)">
                         <input class="el-code-field" maxlength="2" name="e1" type="text">
                     </td>
@@ -86,7 +86,7 @@
                     </td>
                 </tr>
 
-                <tr class="fourth element">
+                <!-- <tr class="fourth element">
                     <td>4.</td>
                     <td class="base value">
                         <input class="el-code-field" maxlength="6" name="e1" type="text">
@@ -228,35 +228,11 @@
                     <td class="score">
                         <output name="score"> </output>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
         <button onclick="calculateScore(free-skate)">Calculate!</button>
     </div>
 </section>
 
-<script>
-    function calculateScore(tableID) {
-
-const table = document.getElementById(tableID);
-const rows = table.rows;
-const numCols = rows[0].cells.length;
-
-const sumRow = table.insertRow(-1);
-
-for (let i = 0; i < numCols; i++) {
-  let sum = 0;
-  for (let j = 1; j < rows.length; j++) {
-    const cellValue = parseFloat(rows[j].cells[i].textContent);
-    if (!isNaN(cellValue)) {
-      sum += cellValue;
-    }
-  }
-
-  const sumCell = sumRow.insertCell(i)
-  sumCell.textContent = sum;
-
-}
-}
-</script>
 </html>
