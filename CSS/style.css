@@ -39,6 +39,16 @@ section {
     margin-top: 2%;
     font-size: 3em;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.Container h3 {
+    margin-top: 2%;
+    font-size: 1em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .Container p,

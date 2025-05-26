@@ -635,9 +635,11 @@ function calculateScore() {
 
     const score = baseValue + goeScaled;
 
+    const baseValueOutput = row.querySelector('output[name="base value"]');
     const goeScaledOutput = row.querySelector('output[name="goe (scaled)"]');
     const scoreOutput = row.querySelector('output[name="score"]');
     scoreOutput.textContent = score.toFixed(2);
     goeScaledOutput.textContent = goeScaled.toFixed(2);
+    baseValueOutput.textContent = baseValue.toFixed(2);
   });
 }
