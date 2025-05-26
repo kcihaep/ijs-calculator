@@ -57,6 +57,11 @@ ul {
     font-size: 1.5rem;
 }
 
+table {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
 input {
     width: 80%
 }
