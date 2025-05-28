@@ -627,10 +627,21 @@ function calculateScore() {
     let goeInput = row.querySelector('.goe')
     let checkbox = row.querySelector('input.second-half');
 
-    const code = codeInput.value.trim().toLowerCase()
-    let baseValue = elementBaseValues[code] || 0;
+    let code = codeInput.value.trim().toLowerCase();
+    let codeArray = code.split("+");
+    console.log(codeArray);
+
+    let baseValue = 0;
+    let maxValue = 0;
+    codeArray.forEach(element => {
+      baseValue += elementBaseValues[element] || 0;
+      if (elementBaseValues[element] > maxValue) {
+        maxValue = elementBaseValues[element];
+      }
+    })
+
     let goe = parseFloat(goeInput.value) || 0;
-    let goeScaled = baseValue * 0.1 * goe;
+    let goeScaled = maxValue * 0.1 * goe;
 
     if (checkbox && checkbox.checked && isJump(code)) {
       baseValue *= 1.1;
