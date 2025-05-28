@@ -646,31 +646,67 @@ function calculateScore() {
 
 
 function addRow() {
-    let table = document.getElementById("calculatorTable");
-    var row = table.insertRow();
-    row.setAttribute('class', 'element');
-    console.log(row);
-    console.log(table.rows.length);
+  let table = document.getElementById("calculatorTable");
+  var row = table.insertRow();
+  row.setAttribute('class', 'element');
 
-    const numberCell = row.insertCell(0);
-    numberCell.innerHTML = table.rows.length - 1 + ".";
+  const numberCell = row.insertCell(0);
+  numberCell.innerHTML = table.rows.length - 1 + ".";
 
-    const elementCell = row.insertCell(1);
-    elementCell.innerHTML = '<input class="element-code" maxlength="6" placeholder="" type="text">';
-    
-    const baseValueCell = row.insertCell(2);
-    baseValueCell.innerHTML = '<output name="base value"> </output>';
+  const elementCell = row.insertCell(1);
+  elementCell.innerHTML = '<input class="element-code" maxlength="6" placeholder="" type="text">';
 
-    const secondHalfCell = row.insertCell(3);
-    secondHalfCell.innerHTML = '<input type="checkbox" class="secondhalf" name="secondhalf" value="secondhalf">';
+  const baseValueCell = row.insertCell(2);
+  baseValueCell.innerHTML = '<output name="base value"> </output>';
 
-    const rawGoeCell = row.insertCell(4);
-    rawGoeCell.innerHTML = '<input class="goe" maxlength="2" name="e1" type="text">';
+  const secondHalfCell = row.insertCell(3);
+  secondHalfCell.innerHTML = '<input type="checkbox" class="secondhalf" name="secondhalf" value="secondhalf">';
 
-    const goeScaledCell = row.insertCell(5);
-    goeScaledCell.innerHTML = '<output name="goe (scaled)"> </output>';
+  const rawGoeCell = row.insertCell(4);
+  rawGoeCell.innerHTML = '<input class="goe" maxlength="2" name="e1" type="text">';
 
-    const scoreCell = row.insertCell(6);
-    scoreCell.innerHTML = '<output name="score"> </output>';
+  const goeScaledCell = row.insertCell(5);
+  goeScaledCell.innerHTML = '<output name="goe (scaled)"> </output>';
+
+  const scoreCell = row.insertCell(6);
+  scoreCell.innerHTML = '<output name="score"> </output>';
 }
 
+function deleteRow() {
+  let table = document.getElementById("calculatorTable");
+  if (table.rows.length <= 2) {
+    return;
+  }
+  table.deleteRow(-1);
+}
+
+function clearTable() {
+  let table = document.getElementById("calculatorTable");
+  var row = table.insertRow();
+  row.setAttribute('class', 'element');
+
+  const numberCell = row.insertCell(0);
+  numberCell.innerHTML = "1.";
+
+  const elementCell = row.insertCell(1);
+  elementCell.innerHTML = '<input class="element-code" maxlength="6" placeholder="" type="text">';
+
+  const baseValueCell = row.insertCell(2);
+  baseValueCell.innerHTML = '<output name="base value"> </output>';
+
+  const secondHalfCell = row.insertCell(3);
+  secondHalfCell.innerHTML = '<input type="checkbox" class="secondhalf" name="secondhalf" value="secondhalf">';
+
+  const rawGoeCell = row.insertCell(4);
+  rawGoeCell.innerHTML = '<input class="goe" maxlength="2" name="e1" type="text">';
+
+  const goeScaledCell = row.insertCell(5);
+  goeScaledCell.innerHTML = '<output name="goe (scaled)"> </output>';
+
+  const scoreCell = row.insertCell(6);
+  scoreCell.innerHTML = '<output name="score"> </output>';
+  
+  while (table.rows.length > 2) {
+    table.deleteRow(1);
+  }
+}
