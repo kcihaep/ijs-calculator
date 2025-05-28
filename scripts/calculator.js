@@ -617,26 +617,28 @@ function calculateScore() {
     "pcosp4v": 3.38,
   }
 
-  const rows = document.querySelectorAll('.element');
+  const rows = document.querySelectorAll(".element-row");
 
   rows.forEach(row => {
-    const codeInput = row.querySelector('input.element-code');
-    const goeInput = row.querySelector('input.goe')
-    const checkbox = row.querySelector('.secondhalf');
-
+    let codeInput = row.querySelector('input.element-code');
+    let goeInput = row.querySelector('.goe')
+    let checkbox = row.querySelector('.second-half');
+    console.log('Checkbox found:', checkbox);
+    
     const code = codeInput.value.trim().toLowerCase()
     let baseValue = elementBaseValues[code] || 0;
-    let goe = parseFloat(goeInput) || 0;
-    const goeScaled = baseValue * 0.1 * goe;
+    let goe = parseFloat(goeInput.value) || 0;
+    let goeScaled = baseValue * 0.1 * goe;
 
     if (checkbox && checkbox.checked) {
       baseValue *= 1.1;
+      console.log("yes!");
     }
 
-    const score = baseValue + goeScaled;
+    let score = baseValue + goeScaled;
 
-    let baseValueOutput = row.querySelector('output[name="base value"]') || 0;
-    let goeScaledOutput = row.querySelector('output[name="goe (scaled)"]') || 0;
+    let baseValueOutput = row.querySelector('output[name="base-value"]') || 0;
+    let goeScaledOutput = row.querySelector('output[name="goe-scaled"]') || 0;
     let scoreOutput = row.querySelector('output[name="score"]') || 0;
     baseValueOutput.textContent = baseValue.toFixed(2);
     scoreOutput.textContent = score.toFixed(2);
@@ -657,16 +659,16 @@ function addRow() {
   elementCell.innerHTML = '<input class="element-code" maxlength="6" placeholder="" type="text">';
 
   const baseValueCell = row.insertCell(2);
-  baseValueCell.innerHTML = '<output name="base value"> </output>';
+  baseValueCell.innerHTML = '<output name="base-value"> </output>';
 
   const secondHalfCell = row.insertCell(3);
-  secondHalfCell.innerHTML = '<input type="checkbox" class="secondhalf" name="secondhalf" value="secondhalf">';
+  secondHalfCell.innerHTML = '<input type="checkbox" class="second-half" name="second-half" value="second-half">';
 
   const rawGoeCell = row.insertCell(4);
   rawGoeCell.innerHTML = '<input class="goe" maxlength="2" name="e1" type="text">';
 
   const goeScaledCell = row.insertCell(5);
-  goeScaledCell.innerHTML = '<output name="goe (scaled)"> </output>';
+  goeScaledCell.innerHTML = '<output name="goe-scaled"> </output>';
 
   const scoreCell = row.insertCell(6);
   scoreCell.innerHTML = '<output name="score"> </output>';
@@ -692,16 +694,16 @@ function clearTable() {
   elementCell.innerHTML = '<input class="element-code" maxlength="6" placeholder="" type="text">';
 
   const baseValueCell = row.insertCell(2);
-  baseValueCell.innerHTML = '<output name="base value"> </output>';
+  baseValueCell.innerHTML = '<output name="base-value"> </output>';
 
   const secondHalfCell = row.insertCell(3);
-  secondHalfCell.innerHTML = '<input type="checkbox" class="secondhalf" name="secondhalf" value="secondhalf">';
+  secondHalfCell.innerHTML = '<input type="checkbox" class="second-half" name="second-half" value="second-half">';
 
   const rawGoeCell = row.insertCell(4);
   rawGoeCell.innerHTML = '<input class="goe" maxlength="2" name="e1" type="text">';
 
   const goeScaledCell = row.insertCell(5);
-  goeScaledCell.innerHTML = '<output name="goe (scaled)"> </output>';
+  goeScaledCell.innerHTML = '<output name="goe-scaled"> </output>';
 
   const scoreCell = row.insertCell(6);
   scoreCell.innerHTML = '<output name="score"> </output>';
