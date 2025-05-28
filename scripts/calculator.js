@@ -621,6 +621,10 @@ function isJump(code) {
 
 function calculateScore() {
   const rows = document.querySelectorAll(".element-row");
+  let totalBaseValue = 0;
+  let totalGOE = 0;
+  let totalScore = 0;
+
 
   rows.forEach(row => {
     let codeInput = row.querySelector('input.element-code');
@@ -649,6 +653,10 @@ function calculateScore() {
 
     let score = baseValue + goeScaled;
 
+    totalBaseValue += baseValue;
+    totalGOE += goeScaled;
+    totalScore += score
+
     let baseValueOutput = row.querySelector('output[name="base-value"]') || 0;
     let goeScaledOutput = row.querySelector('output[name="goe-scaled"]') || 0;
     let scoreOutput = row.querySelector('output[name="score"]') || 0;
@@ -656,6 +664,35 @@ function calculateScore() {
     scoreOutput.textContent = score.toFixed(2);
     goeScaledOutput.textContent = goeScaled.toFixed(2);
   });
+
+  totalBaseValue = totalBaseValue.toFixed(2);
+  totalGOE = totalGOE.toFixed(2);
+  totalScore = totalScore.toFixed(2);
+
+  let table = document.getElementById("calculatorTable");
+  var row = table.insertRow();
+  row.setAttribute('class', 'final-row');
+
+  const numberCell = row.insertCell(0);
+  numberCell.innerHTML = ''
+
+  const elementCell = row.insertCell(1);
+  elementCell.innerHTML = ''
+
+  const baseValueCell = row.insertCell(2);
+  baseValueCell.innerHTML = totalBaseValue;
+
+  const secondHalfCell = row.insertCell(3);
+  secondHalfCell.innerHTML = '';
+
+  const rawGoeCell = row.insertCell(4);
+  rawGoeCell.innerHTML = '';
+
+  const goeScaledCell = row.insertCell(5);
+  goeScaledCell.innerHTML = totalGOE;
+
+  const scoreCell = row.insertCell(6);
+  scoreCell.innerHTML = totalScore;
 }
 
 
