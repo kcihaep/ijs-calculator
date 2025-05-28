@@ -626,7 +626,7 @@ function calculateScore() {
 
     const code = codeInput.value.trim().toLowerCase()
     let baseValue = elementBaseValues[code] || 0;
-    const goe = parseFloat(goeInput.value) || 0;
+    let goe = parseFloat(goeInput) || 0;
     const goeScaled = baseValue * 0.1 * goe;
 
     if (checkbox && checkbox.checked) {
@@ -635,11 +635,42 @@ function calculateScore() {
 
     const score = baseValue + goeScaled;
 
-    const baseValueOutput = row.querySelector('output[name="base value"]');
-    const goeScaledOutput = row.querySelector('output[name="goe (scaled)"]');
-    const scoreOutput = row.querySelector('output[name="score"]');
+    let baseValueOutput = row.querySelector('output[name="base value"]') || 0;
+    let goeScaledOutput = row.querySelector('output[name="goe (scaled)"]') || 0;
+    let scoreOutput = row.querySelector('output[name="score"]') || 0;
+    baseValueOutput.textContent = baseValue.toFixed(2);
     scoreOutput.textContent = score.toFixed(2);
     goeScaledOutput.textContent = goeScaled.toFixed(2);
-    baseValueOutput.textContent = baseValue.toFixed(2);
   });
 }
+
+
+function addRow() {
+    let table = document.getElementById("calculatorTable");
+    var row = table.insertRow();
+    row.setAttribute('class', 'element');
+    console.log(row);
+    console.log(table.rows.length);
+
+    const numberCell = row.insertCell(0);
+    numberCell.innerHTML = table.rows.length - 1 + ".";
+
+    const elementCell = row.insertCell(1);
+    elementCell.innerHTML = '<input class="element-code" maxlength="6" placeholder="" type="text">';
+    
+    const baseValueCell = row.insertCell(2);
+    baseValueCell.innerHTML = '<output name="base value"> </output>';
+
+    const secondHalfCell = row.insertCell(3);
+    secondHalfCell.innerHTML = '<input type="checkbox" class="secondhalf" name="secondhalf" value="secondhalf">';
+
+    const rawGoeCell = row.insertCell(4);
+    rawGoeCell.innerHTML = '<input class="goe" maxlength="2" name="e1" type="text">';
+
+    const goeScaledCell = row.insertCell(5);
+    goeScaledCell.innerHTML = '<output name="goe (scaled)"> </output>';
+
+    const scoreCell = row.insertCell(6);
+    scoreCell.innerHTML = '<output name="score"> </output>';
+}
+

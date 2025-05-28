@@ -9,7 +9,7 @@
     <meta name="author" content="Michael Xie">
     <title>IJS Calculator</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="scripts/calculator.js"></script>
+    <script async src="scripts/calculator.js"></script>
     <noscript>To use this site, please enable JavaScript.</noscript>
 </head>
 
@@ -28,7 +28,7 @@
     <div class="Container">
         <h1>IJS Calculator</h1>
         <p>Senior Free Skate</p>
-        <table class="calculator">
+        <table class="calculator" id="calculatorTable">
             <tbody>
                 <tr class="head" id="free-skate">
                     <th>Number</th>
@@ -40,8 +40,10 @@
                     <th>Score</th>
                 </tr>
 
-                <tr class="first element">
-                    <td>1.</td>
+                <tr class="element">
+                    <td class="number">
+                        1.
+                    </td>
                     <td class="element">
                         <input class="element-code" maxlength="6" placeholder="" type="text">
                     </td>
@@ -61,53 +63,10 @@
                         <output name="score"> </output>
                     </td>
                 </tr>
-
-                <tr class="second element">
-                    <td>2.</td>
-                    <td class="element">
-                        <input class="element-code" maxlength="6" placeholder="" type="text">
-                    </td>
-                    <td class="base value">
-                        <output name="base value"> </output>
-                    </td>
-                    <td class="second half?">
-                        <input type="checkbox" class="secondhalf" name="secondhalf" value="secondhalf">
-                    </td>
-                    <td class="goe (raw)">
-                        <input class="goe" maxlength="2" name="e1" type="text">
-                    </td>
-                    <td class="goe (scaled)">
-                        <output name="goe (scaled)"> </output>
-                    </td>         
-                    <td class="score">
-                        <output name="score"> </output>
-                    </td>
-                </tr>
-
-                <tr class="third element">
-                    <td>3.</td>
-                    <td class="element">
-                        <input class="element-code" maxlength="6" placeholder="" type="text">
-                    </td>
-                    <td class="base value">
-                        <output name="base value"> </output>
-                    </td>
-                    <td class="second half?">
-                        <input type="checkbox" class="secondhalf" name="secondhalf" value="secondhalf">
-                    </td>
-                    <td class="goe (raw)">
-                        <input class="goe" maxlength="2" name="e1" type="text">
-                    </td>
-                    <td class="goe (scaled)  ">
-                        <output name="goe (scaled)"> </output>
-                    </td>         
-                    <td class="score">
-                        <output name="score"> </output>
-                    </td>
-                </tr>
             </tbody>
         </table>
-        <button onclick="calculateScore()">Calculate!</button>
+        <button class="add-row-button" onclick="addRow()">Add Row</button>
+        <button class="submit-button" onclick="calculateScore()">Calculate!</button>
     </div>
 </section>
 

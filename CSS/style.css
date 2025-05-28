@@ -57,6 +57,15 @@ ul {
     font-size: 1.5rem;
 }
 
+.add-row-button {
+    font-size: 10px;
+    color: black;
+}
+
+.clear-button {
+    float: right;
+}
+
 table {
     padding-left: 25px;
     padding-right: 25px;
