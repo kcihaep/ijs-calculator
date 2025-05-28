@@ -625,7 +625,6 @@ function calculateScore() {
   let totalGOE = 0;
   let totalScore = 0;
 
-
   rows.forEach(row => {
     let codeInput = row.querySelector('input.element-code');
     let goeInput = row.querySelector('.goe')
@@ -646,6 +645,10 @@ function calculateScore() {
 
     let goe = parseFloat(goeInput.value) || 0;
     let goeScaled = maxValue * 0.1 * goe;
+
+    if (codeArray.includes("rep")) {
+      baseValue *= 0.7;
+    }
 
     if (checkbox && checkbox.checked && isJump(code)) {
       baseValue *= 1.1;
@@ -672,6 +675,7 @@ function calculateScore() {
   let table = document.getElementById("calculatorTable");
   var row = table.insertRow();
   row.setAttribute('class', 'final-row');
+  row.setAttribute('id', 'last');
 
   const numberCell = row.insertCell(0);
   numberCell.innerHTML = ''
@@ -705,7 +709,7 @@ function addRow() {
   numberCell.innerHTML = table.rows.length - 1 + ".";
 
   const elementCell = row.insertCell(1);
-  elementCell.innerHTML = '<input class="element-code" maxlength="6" placeholder="" type="text">';
+  elementCell.innerHTML = '<input class="element-code" placeholder="" type="text">';
 
   const baseValueCell = row.insertCell(2);
   baseValueCell.innerHTML = '<output name="base-value"> </output>';
@@ -714,7 +718,7 @@ function addRow() {
   secondHalfCell.innerHTML = '<input type="checkbox" class="second-half" name="second-half" value="second-half">';
 
   const rawGoeCell = row.insertCell(4);
-  rawGoeCell.innerHTML = '<input class="goe" maxlength="2" name="e1" type="text">';
+  rawGoeCell.innerHTML = '<input class="goe" name="e1" type="text">';
 
   const goeScaledCell = row.insertCell(5);
   goeScaledCell.innerHTML = '<output name="goe-scaled"> </output>';
@@ -740,7 +744,7 @@ function clearTable() {
   numberCell.innerHTML = "1.";
 
   const elementCell = row.insertCell(1);
-  elementCell.innerHTML = '<input class="element-code" maxlength="6" placeholder="" type="text">';
+  elementCell.innerHTML = '<input class="element-code" placeholder="" type="text">';
 
   const baseValueCell = row.insertCell(2);
   baseValueCell.innerHTML = '<output name="base-value"> </output>';
@@ -749,7 +753,7 @@ function clearTable() {
   secondHalfCell.innerHTML = '<input type="checkbox" class="second-half" name="second-half" value="second-half">';
 
   const rawGoeCell = row.insertCell(4);
-  rawGoeCell.innerHTML = '<input class="goe" maxlength="2" name="e1" type="text">';
+  rawGoeCell.innerHTML = '<input class="goe" name="e1" type="text">';
 
   const goeScaledCell = row.insertCell(5);
   goeScaledCell.innerHTML = '<output name="goe-scaled"> </output>';
