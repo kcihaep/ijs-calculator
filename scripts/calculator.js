@@ -618,12 +618,12 @@ function calculateScore() {
   }
 
   const rows = document.querySelectorAll(".element-row");
+  console.log(rows);
 
   rows.forEach(row => {
     let codeInput = row.querySelector('input.element-code');
     let goeInput = row.querySelector('.goe')
-    let checkbox = row.querySelector('.second-half');
-    console.log('Checkbox found:', checkbox);
+    let checkbox = row.querySelector('input.second-half');
     
     const code = codeInput.value.trim().toLowerCase()
     let baseValue = elementBaseValues[code] || 0;
@@ -650,7 +650,7 @@ function calculateScore() {
 function addRow() {
   let table = document.getElementById("calculatorTable");
   var row = table.insertRow();
-  row.setAttribute('class', 'element');
+  row.setAttribute('class', 'element-row');
 
   const numberCell = row.insertCell(0);
   numberCell.innerHTML = table.rows.length - 1 + ".";
@@ -685,7 +685,7 @@ function deleteRow() {
 function clearTable() {
   let table = document.getElementById("calculatorTable");
   var row = table.insertRow();
-  row.setAttribute('class', 'element');
+  row.setAttribute('class', 'element-row');
 
   const numberCell = row.insertCell(0);
   numberCell.innerHTML = "1.";
