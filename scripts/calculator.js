@@ -620,6 +620,7 @@ function isJump(code) {
 }
 
 function calculateScore() {
+
   const rows = document.querySelectorAll(".element-row");
   let totalBaseValue = 0;
   let totalGOE = 0;
