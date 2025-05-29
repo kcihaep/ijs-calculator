@@ -95,44 +95,37 @@ footer {
     font-size: 1rem;
 }
 
-/* Style the navigation menu */
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-  position: relative;
+nav {
+ padding: 1.5rem 2rem;
+ background-color: #222831;
+ color: #fff;
 }
 
-/* Hide the links inside the navigation menu (except for logo/home) */
-.topnav #myLinks {
-  display: none;
+.checkbtn {
+ font-size: 1.5rem;
+ color: white;
+ cursor: pointer;
 }
 
-/* Style navigation menu links */
-.topnav a {
-  color: white;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  display: block;
+.nav-mobile {
+ display: none;
 }
 
-/* Style the hamburger menu */
-.topnav a.icon {
-  background: black;
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
+#check:checked ~ .nav-mobile {
+ display: block;
 }
 
-/* Add a grey background color on mouse-over */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
+.nav-mobile {
+ position: absolute;
+ top: 4.5rem;
+ left: 0;
+ background: #222831;
+ z-index: 1;
+ width: 200px;
 }
 
-/* Style the active link (or home/logo) */
-.active {
-  background-color: #04AA6D;
-  color: white;
+.nav-mobile a {
+ color: #fff;
+ padding: 1rem 1.5rem;
+ display: block;
 }

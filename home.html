@@ -9,28 +9,22 @@
     <meta name="author" content="Michael Xie">
     <title>IJS Calculator</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script async src="scripts/main.js"></script>
     <script src="scripts/hamburger.js"></script>
 </head>
 
-<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<!-- Top Navigation Menu -->
-<div class="topnav">
-  <a href="home.html" class="active">placeholder</a>
-  <!-- Navigation links (hidden by default) -->
-  <div id="myLinks">
-    <a href="home.html" >Home</a>
+<nav>
+  <input type="checkbox" id="check">
+  <label for="check" class="checkbtn">
+    <i class="fas fa-bars"></i>
+  </label>
+  <div class="nav-mobile">
+    <a href="home.html">Home</a>
     <a href="calculator.html">Calculator</a>
     <a href="about and contact.html">About and Contact</a>
   </div>
-  <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-</div>
-<!--header-->
+</nav>
 
 <body>
     <!-- <header>
