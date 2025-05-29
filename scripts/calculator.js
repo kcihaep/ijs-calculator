@@ -620,6 +620,10 @@ function isJump(code) {
 }
 
 function calculateScore() {
+  let totals = document.querySelectorAll(".final-row")
+  totals.forEach(total => {
+    total.remove();
+  })
 
   const rows = document.querySelectorAll(".element-row");
   let totalBaseValue = 0;
@@ -702,6 +706,11 @@ function calculateScore() {
 
 
 function addRow() {
+  let totals = document.querySelectorAll(".final-row")
+  totals.forEach(total => {
+    total.remove();
+  })
+
   let table = document.getElementById("calculatorTable");
   var row = table.insertRow();
   row.setAttribute('class', 'element-row');
@@ -729,6 +738,11 @@ function addRow() {
 }
 
 function deleteRow() {
+  let totals = document.querySelectorAll(".final-row")
+  totals.forEach(total => {
+    total.remove();
+  })
+
   let table = document.getElementById("calculatorTable");
   if (table.rows.length <= 2) {
     return;
