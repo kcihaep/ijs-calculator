@@ -107,6 +107,13 @@ nav {
  cursor: pointer;
 }
 
+#check {
+  width: 3em;
+  height: 3rem;
+  accent-color: green;
+  display: none;
+}
+
 .nav-mobile {
  display: none;
 }
@@ -128,4 +135,22 @@ nav {
  color: #fff;
  padding: 1rem 1.5rem;
  display: block;
+}
+
+@media only screen and (max-width: 640px) {
+ .checkbtn {
+ display: block;
+ font-size: 5rem;
+ position: absolute;
+ top: 30px;
+ left: 40px;
+ }
+.nav-mobile {
+ top: 160px;
+ width: 100%;
+ }
+.nav-mobile a {
+ font-size: 2rem;
+ padding: 2rem 3rem;
+ }
 }
