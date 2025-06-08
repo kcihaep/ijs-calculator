@@ -12,30 +12,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script async src="scripts/calculator.js"></script>
     <script src="scripts/hotkeys.js"></script>
+    <script src="scripts/main.js"></script>
     <noscript>To use this site, please enable JavaScript.</noscript>
 </head>
 
-<nav>
-  <input type="checkbox" id="check">
-  <label for="check" class="checkbtn">
-    <i class="fas fa-bars"></i>
-  </label>
-  <div class="nav-mobile">
-    <a href="home.html">Home</a>
-    <a href="calculator.html">Calculator</a>
-    <a href="about and contact.html">About and Contact</a>
-  </div>
+<nav class="navbar">
+    <div class="logo"></div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="calculator.html">Calculator</a></li>
+        <li><a href="about and contact.html">About and Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger">&#9776;</button>
 </nav>
-
-<header>
-    <nav>
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="calculator.html">Calculator</a></li>
-            <li><a href="about and contact.html">About and Contact</a></li>
-        </ul>
-    </nav>
-</header>
 
 <!--calculator-->
 <section id="calculator">
