@@ -72,6 +72,60 @@
                 </tr>
             </tbody>
         </table>
+
+        <table class="components" id="componentsTable">
+            <tbody>
+                <tr class="head" id="pcs">
+                    <th>Component</th>
+                    <th>Score</th>
+                    <th>Factor</th>
+                    <th>Score</th>
+                </tr>
+                <tr class="component">
+                    <td>Composition</td>
+                    <td class="component">
+                        <input class="component" placeholder="" type="text">
+                    </td>
+                    <td class="factor">
+                        <input class="factor" placeholder="" type="text">
+                    </td>
+                    <td class="components-score">
+                        <output name="score"> </output>
+                    </td>
+                </tr>
+                <tr class="component">
+                    <td>Presentation</td>
+                    <td class="component">
+                        <input class="component" placeholder="" type="text">
+                    </td>
+                    <td class="factor">
+                        <input class="factor" placeholder="" type="text">
+                    </td>
+                    <td class="components-score">
+                        <output name="score"> </output>
+                    </td>
+                </tr>
+                <tr class="component">
+                    <td>Skating Skills</td>
+                    <td class="scomponent">
+                        <input class="component" placeholder="" type="text">
+                    </td>
+                    <td class="factor">
+                        <input class="factor" placeholder="" type="text">
+                    </td>
+                    <td class="components-score">
+                        <output name="score"> </output>
+                    </td>
+                </tr>
+                <tr class="final-row">
+                </tr>
+            </tbody>
+        </table>
+
+        <label for="general-factor">General Factor</label>
+        
+        <input type="text" id="general-factor" maxlength="3"/>
+
         <button class="add-delete-button" onclick="addRow()">Add Element</button>
         <button class="add-delete-button" onclick="deleteRow()">Delete Element</button>
         <button class="submit-button" onclick="calculateScore()">Calculate!</button>

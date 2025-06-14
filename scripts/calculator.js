@@ -619,7 +619,7 @@ function isJump(code) {
   return /^\d/.test(code);
 }
 
-function calculateScore() {
+function calculateTechScore() {
   let totals = document.querySelectorAll(".final-row")
   totals.forEach(total => {
     total.remove();
@@ -637,7 +637,6 @@ function calculateScore() {
 
     let code = codeInput.value.trim().toLowerCase();
     let codeArray = code.split("+");
-    console.log(codeArray);
 
     let baseValue = 0;
     let maxValue = 0;
@@ -704,6 +703,55 @@ function calculateScore() {
   scoreCell.innerHTML = totalScore;
 }
 
+function calculateComponentScore() {
+  let totals = document.querySelectorAll(".final-row")
+  totals.forEach(total => {
+    total.remove();
+  })
+
+  const rows = document.querySelectorAll('tr.component');
+  let totalScore = 0;
+
+  rows.forEach(row => {
+    let componentInput = row.querySelector('td input.component');
+    let factorInput = row.querySelector('td input.factor')
+
+    let component = parseFloat(componentInput.value) || 0;
+    let factor = parseFloat(factorInput.value) || 0;
+
+    let componentScore = component * factor
+
+    totalScore += componentScore
+
+    let componentScoreOutput = row.querySelector('output[name="score"]') || 0;
+    componentScoreOutput.textContent = componentScore.toFixed(2);
+  })
+
+  let numberScore = parseFloat(totalScore);
+  numberScore = numberScore.toFixed(2);
+
+  let table = document.getElementById("componentsTable");
+  var row = table.insertRow();
+  row.setAttribute('class', 'final-row');
+  row.setAttribute('id', 'last');
+
+  const componentCell = row.insertCell(0);
+  componentCell.innerHTML = ''
+
+  const scoreCell = row.insertCell(1);
+  scoreCell.innerHTML = ''
+
+  const factorCell = row.insertCell(2);
+  factorCell.innerHTML = ''
+
+  const totalScoreCell = row.insertCell(3);
+  totalScoreCell.innerHTML = numberScore;
+}
+
+function calculateScore() {
+  calculateComponentScore();
+  calculateTechScore();
+}
 
 function addRow() {
   let totals = document.querySelectorAll(".final-row")
